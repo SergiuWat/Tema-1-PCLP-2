@@ -43,11 +43,8 @@ private:
 
 public:
 	CryptoBlock(int ix, string prevHash, string sender, string recipient, double quantity) {
-		static int ixe = 0;
-		ixe++;
-		index = ixe;
+		index = ix;
 		previousBlockHash = prevHash;
-		cout << "PREVIUS BLOCK HASH DEBUG: " << previousBlockHash << endl;
 		tx = Transaction(sender, recipient, quantity);
 	}
 	int getIndex() { return index; }
@@ -70,7 +67,6 @@ public:
 	}
 
 	void addNewBlock(string sender, string recipient, double quantity) {	
-		cout << "DEBUG BLOCK HASH: " << getLastHash() << endl;
 		CryptoBlock* block = new CryptoBlock(getLastIndex(), getLastHash(), sender, recipient, quantity);
 		chain.push_back(*block);
 	}
@@ -79,7 +75,7 @@ public:
 
 ostream& operator<<(ostream& o, CryptoBlock b) {
 	o << "{" << endl;
-	o << "  BlockId: " << b.getIndex()-1<<"," << endl;
+	o << "  BlockId: " << b.getIndex()<<"," << endl;
 	o << "  Time_Stamp: " << b.getTimeStamp() << "," << endl;
 	o << "  Previous_Block_Hash: " << b.getPreviousBlockHash() << "," << endl;
 	o << "  Block_Hash: " << b.getBlockHash() << "," << endl;
