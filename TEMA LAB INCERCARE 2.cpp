@@ -42,10 +42,9 @@ private:
 	string blockHash = calculateHash();
 
 public:
-	CryptoBlock(int ix, string prevHash, string sender, string recipient, double quantity) {
+	CryptoBlock(int ix, string prevHash, string sender, string recipient, double quantity)::tx(sender,recipient,quantity) {
 		index = ix;
 		previousBlockHash = prevHash;
-		tx = Transaction(sender, recipient, quantity);
 	}
 	int getIndex() { return index; }
 	string getTimeStamp() { return timeStamp; }
