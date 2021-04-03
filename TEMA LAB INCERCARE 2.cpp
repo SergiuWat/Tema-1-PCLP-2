@@ -37,7 +37,7 @@ private:
 		return str;
 	}
 	int index;
-	string timeStamp = now();
+	string timeStamp;
 	string previousBlockHash{};
 	string blockHash = calculateHash();
 
@@ -45,6 +45,8 @@ public:
 	CryptoBlock(int ix, string prevHash, string sender, string recipient, double quantity):tx(sender,recipient,quantity) {
 		index = ix;
 		previousBlockHash = prevHash;
+		timeStamp=now();
+		
 	}
 	int getIndex() { return index; }
 	string getTimeStamp() { return timeStamp; }
