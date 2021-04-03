@@ -42,7 +42,7 @@ private:
 	string blockHash = calculateHash();
 
 public:
-	CryptoBlock(int ix, string prevHash, string sender, string recipient, double quantity)::tx(sender,recipient,quantity) {
+	CryptoBlock(int ix, string prevHash, string sender, string recipient, double quantity):tx(sender,recipient,quantity) {
 		index = ix;
 		previousBlockHash = prevHash;
 	}
